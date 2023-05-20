@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/globalStyle.css" />
+    <title>{{ .title }}</title>
+  </head>
+  <body>
+    <nav class="navigation-bar">
+      <div class="navigation-bar-logo-holder">
+        <a class="nav-link logo-link" href="/task"
+          ><img
+            class="go-logo"
+            src="https://pkg.go.dev/static/shared/logo/go-white.svg"
+        /></a>
+      </div>
+      <div class="navigation-bar-items-holder">
+        <a class="nav-link link-item" href="/task/taskslist"
+          ><p class="navigation-bar-link-item">Your tasks</p></a
+        >
+        <a class="nav-link link-item" href="/task/create"
+          ><p class="navigation-bar-link-item">Create a task</p></a
+        >
+        <a class="nav-link link-item" href="/task/completed"
+          ><p class="navigation-bar-link-item">Competed tasks</p></a
+        >
+      </div>
+    </nav>
+    <main class="tasks-list-page-main-container">
+      <h2>Tasks list</h2>
+      <div class="tasks-holder">
+        {{ range .tasksList }} <
+        <article class="cta">
+          <input class="task-complete-radio" type="radio" />
+          <div class="cta__text-column">
+            <h2 class="title">{{ .Title }}</h2>
+            <p>{{ .Description }}</p>
+            <a>More info</a>
+          </div>
+        </article>
+        {{end}}
+      </div>
+    </main>
+  </body>
+</html>
