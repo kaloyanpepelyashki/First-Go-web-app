@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -29,7 +28,7 @@ func main() {
 	server.POST("/task/create", TaskController.CreateNewTaskHandler)
 
 	server.GET("/task/taskslist", func(ctx *gin.Context) {
-		fmt.Println("tasks list ==> ", taskmanager.TasksList)
+
 		ctx.HTML(http.StatusOK, "taskslist.html", gin.H{
 			"title":     "Tasks List",
 			"tasksList": taskmanager.TasksList,
